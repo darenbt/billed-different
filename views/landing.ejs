@@ -1,0 +1,11 @@
+<%- include('partials/header') -%>
+<main class="container">
+  <div class="text-center">
+    <h1><strong>Welcome</strong>, <%= user.userName %>!</h1>
+  </div>
+  <div class="row justify-content-around mt-5">
+      <a href="/profile" class="col-3 btn btn-primary"> Detailed Bill</a>
+      <a href="/quick" class="col-3 btn btn-primary"> Quick Split</a>
+  </div>
+</main>
+<%- include('partials/footer') -%>

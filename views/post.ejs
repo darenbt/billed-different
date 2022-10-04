@@ -1,0 +1,74 @@
+<%- include('partials/header') -%>
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-6">
+      <h2><%= post.title %></h2>
+      <h6 class=>Created: <%= post.createdAt.toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) %></h6>
+      <img class="img-fluid" src="<%= post.image%>" />
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item list-group-item-success">Total: $<%=post.total%></li>
+        <li class="list-group-item list-group-item-danger">Date Due: <%= new Date(post.dateDue.split('-').join(',')).toLocaleDateString('en-us')%></li>
+        <%for(payer in post.payers) {%>
+        <li class="list-group-item">
+          <input class="form-check-input me-1" type="checkbox" aria-label="Check this box if bill was paid" value="" id="<%=`checkbox for ${payer}`%>">
+          <label class="form-check-label stretched-link" for="<%=`checkbox for ${payer}`%>"><%= `${payer} owes: $${parseFloat(post.payers[payer]).toFixed(2)}` %></label>
+        </li>
+        <% } %>
+      </ul>
+      <div class="row justify-content-between">
+        <%if(post.user == user.id){ %>
+        <form action="/post/addPhoto/<%= post.id %>?_method=PUT" enctype="multipart/form-data" method="POST">
+          <div class="input-group">
+            <input type="file" class="form-control" id="imageUpload" name="file" aria-describedby="Image upload file field" aria-label="Upload">
+            <button type="submit" class="btn btn-outline-secondary" id="imageUpload" value="Upload">Add Photo</button>
+          </div>
+        </form>
+        <form
+          action="/post/deletePost/<%= post.id %>?_method=DELETE"
+          method="POST"
+          class="mt-2 text-center"
+        >
+          <button class="btn btn-primary fa fa-trash" type="submit"></button>
+        </form>
+        <%}%>
+      </div>
+    </div>
+    <div class="col-5">
+      <h3>Notes:</h3>
+      <%if(post.user == user.id){ %>
+        <form action="/post/editNotes/<%= post.id %>?_method=PUT" enctype="multipart/form-data" method="POST">
+          <div class="input-group">
+            <textarea name="notes" class="form-control" rows="2" aria-label="Edit or add notes here"><%=post.notes %></textarea>
+            <button type="submit" class="btn btn-primary">Edit</button>
+          </div>
+        </form>
+      <% } else { %>
+      <p><%= post.notes %></p>
+      <% } %>
+    </div>
+    <!-- <div class="mt-5">
+      <h2>Add a comment</h2>
+      <form action="/comment/createComment/<%=post._id%>" method="POST">
+        <div class="mb-3">
+            <label for="comment" class="form-label">Comment</label>
+            <input type="text" class="form-control" id="comment" name="comment">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <ul> -->
+      <%# for(var i=0; i<comments.length; i++) {%>
+        <!-- <li class="col-6 justify-content-between mt-5"> -->
+          <%#= comments[i].comment%>
+        <!-- </li> -->
+      <%# } %>
+    <!-- </ul> -->
+    <!--Add Comment Likes/Edit/Delete Here!-->
+    <div class="col-6 mt-5">
+      <a class="btn btn-primary" href="/profile">Return to Profile</a>
+      <a class="btn btn-primary" href="/feed">Return to Feed</a>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') -%>

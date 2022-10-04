@@ -1,0 +1,70 @@
+<%- include('partials/header') -%>
+<div class="container">
+  <div class="row mt-5">
+      <div class="col-12">
+          <div>
+              <p><strong>User Name</strong>: <%= user.userName %></p>
+              <p><strong>Email</strong>: <%= user.email %></p>
+              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
+          </div>
+          <div class="mt-5">
+            <h2>New Bill</h2>
+            <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+              <div class="form-group">
+                <div class="input-group mb-3">
+                  <span class="input-group-text">Bill Title:</span>
+                  <input type="text" class="form-control" id="title" name="title" aria-label="bill title" placeholder="Enter the bill being paid here. (Ex: Internet)">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-3">
+                  <span class="input-group-text">Bill Total:</span>
+                <input type="text" class="form-control" id="total" name="total" aria-label="total amount"placeholder="Enter bill total here. (Ex: 87.58)">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-3">
+                  <span class="input-group-text">Date Due:</span>
+                <input type="date" class="form-control" id="dateDue" name="dateDue" aria-label="date due">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-3">  
+                  <span class="input-group-text">How Many Ways?</span>
+                <select class="form-control" id="ways" name="ways">
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                </select>
+                </div>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="splitType" id="evenSplit" value="even" checked>
+                <label class="form-check-label" for="evenSplit">
+                  Even Split
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="splitType" id="customSplit" value="custom">
+                <label class="form-check-label" for="customSplit">
+                  Custom Split
+                </label>
+              </div>
+              <div class="mt-2">
+                <button type="button" class="col-2 btn btn-primary" id="next">Next</button>
+              </div>
+              <div class="mt-3 mb-3 form-group"  id="populate">
+              </div>
+              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+            </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="js/newBill.js"></script>
+<%- include('partials/footer') -%>
