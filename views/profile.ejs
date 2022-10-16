@@ -71,7 +71,7 @@
           <h2>Recent</h2>
         </div>
         <ul class="list-unstyled">
-        <% for(var i=0; i<4; i++) {%>
+        <% for(var i=0; posts[i] && i<5; i++) {%>
           <li class="justify-content-between mt-3">
             <a href="/post/<%= posts[i]._id%>">
               <h6><%= posts[i].title%> (Due: <%= new Date(posts[i].dateDue.split('-').join(',')).toLocaleDateString('en-us')%>)</h6>
