@@ -44,9 +44,7 @@
       <% } else { %>
       <p><%= post.notes %></p>
       <% } %>
-      <img class="mt-5 img-fluid mx-auto d-block" src="https://picsum.photos/300" alt=""> 
-      <!--  *LINK FOR QR AFTER WE GET DOMAIN* 
-        <img src="https://api.qrserver.com/v1/create-qr-code/?data=(POST URL GOES HERE)&amp;size=300x300" aria-label="QR code" alt="" title="" /> -->
+      <img class="mt-5 img-fluid mx-auto d-block" src="https://api.qrserver.com/v1/create-qr-code/?data=https://billed-different.cyclic.app/post/<%= post._id %>&amp;size=300x300" aria-label="QR code" alt="QR code"/> 
     </div>
     <!-- <div class="mt-5">
       <h2>Add a comment</h2>

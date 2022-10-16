@@ -18,14 +18,14 @@ function addPayee() {
       e.innerHTML += `<div class="mb-1 input-group">
                         <span class="input-group-text">Name:</span>
                         <input type="text" name="name" aria-label="Name" class="form-control">
-                        <span class="input-group-text">Amount Owed:</span>
+                        <span class="input-group-text">Amount:</span>
                         <input type="text" name="amount" aria-label="Amount owed" class="form-control" value="${each}" readonly>
                       </div>`
     } else{
       e.innerHTML += `<div class="mb-1 input-group">
                         <span class="input-group-text">Name:</span>
                         <input type="text" name="name" aria-label="Name" class="form-control">
-                        <span class="input-group-text">Amount Owed:</span>
+                        <span class="input-group-text">Amount:</span>
                         <input type="text" name="amount" aria-label="Amount owed" class="form-control" placeholder="(Ex: 87.58)">
                       </div>`
     }
