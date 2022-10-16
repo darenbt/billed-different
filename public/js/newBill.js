@@ -35,7 +35,7 @@ function addPayee() {
                     <textarea name="notes" class="form-control" aria-label="Any additional notes"></textarea>
                   </div>`
   e.innerHTML += `<div class="mt-2">
-                    <button type="button" class="col-2 btn btn-danger" id="back">Back</button>
+                    <button type="button" class="col-3 btn btn-danger" id="back">Back</button>
                   </div>`
   nextButton.setAttribute('disabled', '')
   document.querySelector('#back').addEventListener('click', clear)

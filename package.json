@@ -1,6 +1,6 @@
 {
   "name": "billeddifferent",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "An app for separating bills.",
   "main": "server.js",
   "scripts": {
